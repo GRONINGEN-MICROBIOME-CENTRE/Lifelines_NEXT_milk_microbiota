@@ -1,0 +1,73 @@
+# README
+# ================================================================
+# MILK COMPOSITION PAPER - DATA DESCRIPTION AND SCRIPTS 
+# ================================================================
+Created by: Johanne Spreckels; PhD student from Sasha Zhernakova
+Created on: 19 April 2024
+Contact at: j.e.spreckels@umcg.nl, johanne@spreckels.de
+Principal Investigator: Prof. Sasha Zhernakova, sashazhernakova@gmail.com
+# ================================================================
+
+# FOLDER DESCRIPTION
+# ================================================================
+This folder contains the scripts used to generate and process Lifelines NEXT breast milk data used for the human milk composition paper from Spreckels et al.
+# ================================================================
+
+# AIM OF THE PAPER
+# ================================================================
+To characterise human milk oligosaccharides (HMOs) and milk microbiota, the factors shaping them, and their links to infant health in the longitudinal Lifelines NEXT cohort. 
+# ================================================================
+
+# DATA FILES DESCRIPTION
+# ================================================================
+Two data files were used for the analyses in the paper:
+
+(1) File with metadata (environmental, maternal, and infant characteristics) and HMOs (measured in brast milk using UHPLC):
+/groups/umcg-llnext/tmp01/umcg-jspreckels/Milk_composition_paper/phenotypes/240108_milk_composition_paper_sel_phenotypes_hmo_data_n1563.txt
+
+# This file contains the following:
+# - Phenotypes linked to measured HMO data.
+#   !! Note that maternal phenotype and HMO data was duplicated for twins. This is indicated by ";1" (single baby/first baby) and ";2" (twin baby/duplicated data) in the mother_ID and mother_sample_ID.
+#      -> For association with maternal phenotypes (i.e. non-duplicated data), grep only ";1"
+#      -> For association with infant phenotypes or infant outcomes, use both ";1" and ";2"
+# - Real measured levels of 24 single HMOs and 4 grouped HMOs in µg/ml and HMO-based Le and Se status and milk groups
+# - A quality control sample was included in all HMO batches. No need to correct for a batch effect from HMO measurements.
+
+(2) File with metadata (environmental, maternal, and infant characteristics) and breast milk, maternal faecal, and infant faecal microbiota data (all microbiota data profiled using 16S rRNA gene sequencing):
+/groups/umcg-llnext/tmp01/umcg-jspreckels/Milk_composition_paper/microbiota_data/data_after_decontamination/231129_milk_composition_paper_sel_phenotypes_sel_microbiota_data_genera_n1515.rds
+
+# This file contains the following:
+# - Phenotypes linked to milk, maternal faecal and infant faecal microbiota data.
+#   The file also includes real measured levels of 24 single HMOs and 4 grouped HMOs in µg/ml and HMO-based Le and Se status and milk groups as phenotypes.
+#   !! Note that maternal phenotype and HMO data was duplicated for twins. This is indicated by ";1" (single baby/first baby) and ";2" (twin baby/duplicated data) in the mother_ID and mother_sample_ID.
+#      -> For association with maternal phenotypes (i.e. non-duplicated data), grep only ";1"
+#      -> For association with infant phenotypes or infant outcomes, use both ";1" and ";2"
+
+
+Individual and sample IDs:
+Both files include Lifelines NEXT IDs (LLNEXTxxxxxx) and anonymised IDs (FAMxxxx_1_Motherx or FAMxxxx_1_Infantx).
+
+The anonymised IDs (mother_ID, infant_ID) include the following information:
+family ID (FAMxxxx)
+information about whether data is from a mothers first or second participation in Lifelines NEXT (_1_ or _2_)
+information about whether data is from mother or infant (Mother/Infant)
+for mothers: ;1 and ;2  incidcate if it is unique maternal data (;1) or if it is duplicated maternal data for a twin infant (;2)
+for infants: Infant1 indicates that an infant is either from a single pregnancy or the first infant of a twin pregnancy, Infant2 indicates that an infant is the second infant of a twin pregnancy
+
+Sample IDs (mother_sample_ID, infant_sample_ID) additionally show the time point.
+
+# ================================================================
+
+# ANALYSIS SCRIPTS DESCRIPTION
+# ================================================================
+The folder and script names indicate for which figures and tables the scripts were used.
+All scripts start with an overview of the content of the script, which also indicates which sections belong to which figures and tables. Searching e.g. for ‘Figure 1’ or ‘Table 15’ within the script is possible.
+
+# NOTES
+# ================================================================
+
+
+# CHANGELOG
+# ================================================================
+2024:	
+20240419   Johanne Spreckels (j.e.spreckels@umcg.nl, johanne@spreckels.de); Creation of initial README file
